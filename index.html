@@ -44,10 +44,14 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            width: 100%;
+            padding: 20px;
         }
 
         .button-container {
             transition: all 0.5s ease;
+            z-index: 100;
+            position: relative;
         }
 
         .button-container.hidden {
@@ -71,6 +75,10 @@
             text-transform: uppercase;
             position: relative;
             overflow: hidden;
+            z-index: 100;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
         }
 
         .love-button::before {
@@ -232,6 +240,17 @@
         }
 
         @media (max-width: 768px) {
+            body {
+                overflow-x: hidden;
+            }
+            
+            .container {
+                width: 100%;
+                max-width: 100%;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+            
             h1 {
                 font-size: 36px;
             }
@@ -246,8 +265,32 @@
             }
             
             .love-button {
-                padding: 18px 40px;
+                padding: 20px 40px;
+                font-size: 22px;
+                min-width: 200px;
+                width: auto;
+                display: inline-block;
+                -webkit-tap-highlight-color: rgba(255, 107, 157, 0.3);
+                touch-action: manipulation;
+            }
+            
+            .button-container {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .love-button {
+                padding: 18px 35px;
                 font-size: 20px;
+                min-width: 180px;
+            }
+            
+            .container {
+                padding: 15px;
             }
         }
     </style>
